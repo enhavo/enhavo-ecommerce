@@ -1,0 +1,40 @@
+{
+  "license": "proprietary",
+  "packageManager": "yarn@4.5.1",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@enhavo/api": "https://github.com/enhavo/api-assets.git#master",
+    "@enhavo/app": "https://github.com/enhavo/app-assets.git#master",
+    "@enhavo/core": "https://github.com/enhavo/core-assets.git#master",
+    "@enhavo/dashboard": "https://github.com/enhavo/dashboard-assets.git#master",
+    "@enhavo/dependency-injection": "https://github.com/enhavo/dependency-injection.git#master",
+    "@enhavo/form": "https://github.com/enhavo/form-assets.git#master",
+    "@enhavo/media": "https://github.com/enhavo/media-assets.git#master",
+    "@enhavo/user": "https://github.com/enhavo/user-assets.git#master",
+    "@enhavo/vue-form": "https://github.com/enhavo/vue-form-assets.git#master",
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.30",
+    "@vitejs/plugin-vue": "^4.4.1",
+    "@vue/compiler-sfc": "^3.3.8",
+    "dotenv": "^16.4.5",
+    "ts-loader": "^9.0.0",
+    "vite": "^5.1.0",
+    "vite-plugin-live-reload": "^3.0.2"
+  },
+  "scripts": {
+    "admin:dev": "vite --config assets/admin/vite.config.js",
+    "admin:build": "vite build --config assets/admin/vite.config.js",
+    "admin:di": "node ./node_modules/@enhavo/dependency-injection/bin/dependency-injection.js --file assets/admin/container.di.yaml",
+    "theme:dev": "vite --config assets/theme/vite.config.js",
+    "theme:build": "vite build --config assets/theme/vite.config.js",
+    "theme:di": "node ./node_modules/@enhavo/dependency-injection/bin/dependency-injection.js --file assets/theme/container.di.yaml",
+    "build": "vite build --config assets/admin/vite.config.js && vite build --config assets/theme/vite.config.js",
+    "clean": "rm -rf ./node_modules/.vite && rm -rf ./public/build/admin && rm -rf ./public/build/theme"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
